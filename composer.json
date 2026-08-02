@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "componenta/app": "^1.0",
+        "componenta/app": "dev-dev",
         "componenta/config": "^1.0",
         "componenta/http-emitter": "^1.0",
         "componenta/http-psr": "^1.0",
