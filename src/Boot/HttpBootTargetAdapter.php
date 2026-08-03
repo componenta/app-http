@@ -19,7 +19,7 @@ final readonly class HttpBootTargetAdapter implements BootTargetAdapterInterface
         return $scope->matches(Scope::HTTP);
     }
 
-    public function create(AppInterface $app, ScopeInterface $scope): object
+    public function create(AppInterface $app, ScopeInterface $scope): HttpBootTargetInterface
     {
         if ($app instanceof HttpBootTargetInterface) {
             return $app;
