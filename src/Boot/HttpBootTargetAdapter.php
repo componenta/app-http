@@ -6,6 +6,7 @@ namespace Componenta\App\Boot;
 
 use Componenta\App\AppInterface;
 use Componenta\App\Boot\Target\HttpBootTarget;
+use Componenta\App\Boot\Target\HttpBootTargetInterface;
 use Componenta\App\Scope;
 use Componenta\Scope\ScopeInterface;
 use Componenta\App\Server\App as HttpApp;
@@ -20,6 +21,10 @@ final readonly class HttpBootTargetAdapter implements BootTargetAdapterInterface
 
     public function create(AppInterface $app, ScopeInterface $scope): object
     {
+        if ($app instanceof HttpBootTargetInterface) {
+            return $app;
+        }
+
         if (!$app instanceof HttpApp) {
             throw new LogicException(sprintf(
                 'Scope "%s" expects app %s, %s given.',
