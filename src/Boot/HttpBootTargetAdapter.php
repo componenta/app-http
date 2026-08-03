@@ -9,7 +9,6 @@ use Componenta\App\Boot\Target\HttpBootTarget;
 use Componenta\App\Boot\Target\HttpBootTargetInterface;
 use Componenta\App\Scope;
 use Componenta\Scope\ScopeInterface;
-use Componenta\App\Server\App as HttpApp;
 use LogicException;
 
 final readonly class HttpBootTargetAdapter implements BootTargetAdapterInterface
@@ -25,7 +24,7 @@ final readonly class HttpBootTargetAdapter implements BootTargetAdapterInterface
             return $app;
         }
 
-        if (!$app instanceof HttpApp) {
+        if (!$app instanceof App) {
             throw new LogicException(sprintf(
                 'Scope "%s" expects app %s, %s given.',
                 $scope->value,
