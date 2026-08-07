@@ -18,6 +18,8 @@ describe('http app config provider', function (): void {
             ->and($config[DependencyConfigKey::DEPENDENCIES][DependencyConfigKey::FACTORIES])
             ->toHaveKey(App::class)
             ->and($config[AppConfigKey::BOOT_TARGET_ADAPTERS])->toContain(HttpBootTargetAdapter::class)
-            ->and($config[AppConfigKey::BOOTLOADERS])->toContain(HttpBootloader::class);
+            ->and($config[AppConfigKey::BOOTLOADERS])->toContain(HttpBootloader::class)
+            ->and($config[DependencyConfigKey::DEPENDENCIES])
+            ->not->toHaveKey(DependencyConfigKey::AUTOWIRES);
     });
 });

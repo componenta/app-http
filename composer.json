@@ -5,17 +5,21 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "componenta/app": "dev-dev",
+        "componenta/app": "^2.0@dev",
         "componenta/config": "^1.0",
         "componenta/http-emitter": "^1.0",
         "componenta/http-psr": "^1.0",
-        "componenta/middleware-factory": "^1.0",
+        "componenta/middleware-factory": "^2.0@dev",
         "componenta/path-resolver": "^1.0",
         "componenta/pipeline": "^1.0",
         "componenta/scope": "^1.0",
         "nyholm/psr7-server": "^1.1",
         "psr/container": "^2.0",
         "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "nyholm/psr7": "^1.8",
+        "pestphp/pest": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,14 +32,21 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-dev": "1.0.x-dev"
-        },
         "componenta": {
             "config-providers": [
                 "Componenta\\App\\Server\\ConfigProvider"
             ]
         }
     },
-    "minimum-stability": "stable"
+    "scripts": {
+        "test": "@php vendor/bin/pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

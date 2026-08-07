@@ -35,11 +35,5 @@ final class ConfigProvider extends BaseConfigProvider
         ];
     }
 
-    protected function getAutowires(): array
-    {
-        return [
-            HttpBootloader::class,
-            HttpBootTargetAdapter::class,
-        ];
-    }
+
 }
