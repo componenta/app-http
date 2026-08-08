@@ -22,7 +22,7 @@ The package requires PHP `^8.4`, `componenta/app`, `componenta/config`, `compone
 
 | Service or config key | Purpose |
 |---|---|
-| `HttpAppAdapter` | Creates an HTTP application for the HTTP scope. |
+| `ConfigKey::APP_BY_SCOPE[Scope::HTTP->value]` | Resolves the HTTP scope directly to `App::class`. |
 | `HttpBootTargetAdapter` | Adapts the HTTP application to a boot target. |
 | `HttpBootloader` | Loads configured middleware into the HTTP pipeline. |
 | `App` | The HTTP application implementation. |

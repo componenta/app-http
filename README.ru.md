@@ -22,7 +22,7 @@ composer require componenta/app-http
 
 | Сервис или ключ конфигурации | Назначение |
 |---|---|
-| `HttpAppAdapter` | Создает HTTP-приложение для HTTP-области. |
+| `ConfigKey::APP_BY_SCOPE[Scope::HTTP->value]` | Связывает HTTP-область непосредственно с `App::class`. |
 | `HttpBootTargetAdapter` | Адаптирует HTTP-приложение к точке загрузки. |
 | `HttpBootloader` | Загружает настроенные промежуточные обработчики в HTTP-конвейер. |
 | `App` | Реализация HTTP-приложения. |
