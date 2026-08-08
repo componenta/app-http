@@ -20,6 +20,6 @@ describe('http app config provider', function (): void {
             ->and($config[AppConfigKey::BOOT_TARGET_ADAPTERS])->toContain(HttpBootTargetAdapter::class)
             ->and($config[AppConfigKey::BOOTLOADERS])->toContain(HttpBootloader::class)
             ->and($config[DependencyConfigKey::DEPENDENCIES])
-            ->not->toHaveKey(DependencyConfigKey::AUTOWIRES);
+            ->not->toHaveKey('autowires');
     });
 });
