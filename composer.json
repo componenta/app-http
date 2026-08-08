@@ -5,11 +5,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "componenta/app": "^2.0@dev",
+        "componenta/app": "^2.0",
         "componenta/config": "^1.0",
         "componenta/http-emitter": "^1.0",
         "componenta/http-psr": "^1.0",
-        "componenta/middleware-factory": "^2.0@dev",
+        "componenta/middleware-factory": "^2.0",
         "componenta/path-resolver": "^1.0",
         "componenta/pipeline": "^1.0",
         "componenta/scope": "^1.0",
@@ -47,6 +47,6 @@
         },
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
