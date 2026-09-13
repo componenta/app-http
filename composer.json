@@ -5,11 +5,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "componenta/app": "^3.0.2",
-        "componenta/config": "^2.0.2",
-        "componenta/http-emitter": "^1.0",
-        "componenta/http-psr": "^1.0.2",
-        "componenta/middleware-factory": "^2.0.1",
+        "componenta/app": "^4.0.0",
+        "componenta/config": "^3.0.0",
+        "componenta/http-emitter": "^1.0.3",
+        "componenta/http-psr": "^1.1.0",
+        "componenta/middleware-factory": "^2.1.0",
         "componenta/path-resolver": "^1.0",
         "componenta/pipeline": "^1.0",
         "componenta/scope": "^1.0",
@@ -36,6 +36,9 @@
             "config-providers": [
                 "Componenta\\App\\Server\\ConfigProvider"
             ]
+        },
+        "branch-alias": {
+            "dev-main": "2.1.x-dev"
         }
     },
     "scripts": {
