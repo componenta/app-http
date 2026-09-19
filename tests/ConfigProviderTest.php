@@ -14,7 +14,7 @@ describe('http app config provider', function (): void {
     it('registers the HTTP application, boot target adapter and bootloader', function (): void {
         $config = (new ConfigProvider())();
 
-        expect($config[AppConfigKey::APP_BY_SCOPE][Scope::HTTP->value])->toBe(App::class)
+        expect($config[AppConfigKey::APP_ADAPTERS])->toContain(\Componenta\App\Server\HttpAppAdapter::class)
             ->and($config[DependencyConfigKey::DEPENDENCIES][DependencyConfigKey::FACTORIES])
             ->toHaveKey(App::class)
             ->and($config[AppConfigKey::BOOT_TARGET_ADAPTERS])->toContain(HttpBootTargetAdapter::class)

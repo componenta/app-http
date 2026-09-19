@@ -135,3 +135,21 @@ it('orders HTTP middleware by priority and preserves registration order for equa
         'low',
     ]);
 });
+
+it('creates and runs the HTTP app through the shared app factory and real providers', function (): void {
+    $emitter = new AppHttpPriorityEmitter();
+    $composition = (new \Componenta\Config\ConfigFactory())->create(
+        new \Componenta\Config\Environment([]),
+        new \Componenta\App\ConfigProvider(),
+        new \Componenta\App\Server\ConfigProvider(),
+        static fn (): array => ['dependencies' => ['services' => [
+            ServerRequestCreatorInterface::class => new AppHttpPriorityRequestCreator(),
+            EmitterInterface::class => $emitter,
+            PipelineFactoryInterface::class => new AppHttpPriorityPipelineFactory(),
+            MiddlewareFactory::class => new MiddlewareFactory(new AppHttpPriorityMiddlewareResolver()),
+        ]]],
+    );
+    $container = (new \Componenta\DI\ContainerFactory())->create($composition->config, $composition->dependencies);
+    $app = $container->get(\Componenta\App\AppFactoryInterface::class)->createApp(\Componenta\App\Scope::HTTP, $container);
+    expect($app->run())->toBeNull()->and($emitter->response->getStatusCode())->toBe(200);
+});
