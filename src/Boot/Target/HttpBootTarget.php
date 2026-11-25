@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Componenta\App\Boot\Target;
 
-use Componenta\App\Server\App;
+use Componenta\App\Server\HttpApplicationInterface;
 
 final readonly class HttpBootTarget implements HttpBootTargetInterface
 {
     public function __construct(
-        private App $app,
+        private HttpApplicationInterface $app,
     ) {}
 
     public function pipe(mixed $middleware, int $priority = 0): void

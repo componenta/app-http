@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Componenta\App\Server;
 
-use Componenta\App\AppInterface;
 use Componenta\App\Exception\MiddlewarePipeException;
 use Componenta\Http\EmitterInterface;
 use Componenta\Http\Middleware\Exception\MiddlewareResolutionExceptionInterface;
@@ -16,7 +15,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
-final class App implements AppInterface
+final class App implements HttpApplicationInterface
 {
     /**
      * @var list<array{middleware: MiddlewareInterface, priority: int, order: int}>

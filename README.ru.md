@@ -22,8 +22,8 @@ composer require componenta/app-http
 
 | Сервис или ключ конфигурации | Назначение |
 |---|---|
-| `HttpAppAdapter` | Регистрируется через `ConfigKey::APP_ADAPTERS` и получает HTTP-приложение из существующего контейнера. |
-| `HttpBootTargetAdapter` | Адаптирует HTTP-приложение к точке загрузки. |
+| `HttpApplicationInterface` | Сервис приложения для области HTTP регистрируется через `ConfigKey::APPLICATIONS`. Интеграция может выбрать другой сервис посредством `Componenta\App\Server\ConfigKey::RUNTIME`. |
+| `HttpBootTargetAdapter` | Всегда оборачивает приложение в отдельный целевой объект, доступный только для настройки. |
 | `HttpBootloader` | Загружает настроенные промежуточные обработчики в HTTP-конвейер. |
 | `App` | Реализация HTTP-приложения. |
 

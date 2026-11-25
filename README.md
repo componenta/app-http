@@ -22,8 +22,8 @@ The package requires PHP `^8.4`, `componenta/app`, `componenta/config`, `compone
 
 | Service or config key | Purpose |
 |---|---|
-| `HttpAppAdapter` | Registers through `ConfigKey::APP_ADAPTERS` and resolves the HTTP app from the existing container. |
-| `HttpBootTargetAdapter` | Adapts the HTTP application to a boot target. |
+| `HttpApplicationInterface` | Runtime service registered for the HTTP scope via `ConfigKey::APPLICATIONS`. An integration may select an alternative service through `Componenta\App\Server\ConfigKey::RUNTIME`. |
+| `HttpBootTargetAdapter` | Always wraps the runnable HTTP application in a separate configuration-only boot target. |
 | `HttpBootloader` | Loads configured middleware into the HTTP pipeline. |
 | `App` | The HTTP application implementation. |
 
