@@ -14,7 +14,7 @@ composer require componenta/app-http
 
 ## Зависимости
 
-Пакет требует PHP `^8.4`, `componenta/app`, `componenta/config`, `componenta/http-emitter`, `componenta/http-psr`, `componenta/middleware-factory`, `componenta/path-resolver`, `componenta/pipeline`, `nyholm/psr7-server`, PSR-11 и контракты PSR-15 промежуточных обработчиков.
+Пакет требует PHP `^8.5.13`, `componenta/app`, `componenta/config`, `componenta/http-emitter`, `componenta/http-psr`, `componenta/middleware-factory`, `componenta/path-resolver`, `componenta/pipeline`, `nyholm/psr7-server`, PSR-11 и контракты PSR-15 промежуточных обработчиков.
 
 ## Что регистрирует пакет
 

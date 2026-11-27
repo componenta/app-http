@@ -14,7 +14,7 @@ The package exposes `Componenta\App\Server\ConfigProvider` through Composer meta
 
 ## Dependencies
 
-The package requires PHP `^8.4`, `componenta/app`, `componenta/config`, `componenta/http-emitter`, `componenta/http-psr`, `componenta/middleware-factory`, `componenta/path-resolver`, `componenta/pipeline`, `nyholm/psr7-server`, PSR-11, and PSR-15 middleware contracts.
+The package requires PHP `^8.5.13`, `componenta/app`, `componenta/config`, `componenta/http-emitter`, `componenta/http-psr`, `componenta/middleware-factory`, `componenta/path-resolver`, `componenta/pipeline`, `nyholm/psr7-server`, PSR-11, and PSR-15 middleware contracts.
 
 ## Registered Services
 
