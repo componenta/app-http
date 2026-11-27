@@ -4,14 +4,14 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^8.4",
-        "componenta/app": "^6.0.0",
-        "componenta/config": "^3.0.0",
-        "componenta/http-emitter": "^1.0.3",
+        "php": "^8.5.13",
+        "componenta/app": "^6.0",
+        "componenta/config": "^4.0",
+        "componenta/http-emitter": "^2.0",
         "componenta/http-psr": "^1.1.0",
-        "componenta/middleware-factory": "^2.1.0",
+        "componenta/middleware-factory": "^3.0",
         "componenta/path-resolver": "^1.0",
-        "componenta/pipeline": "^1.0",
+        "componenta/pipeline": "^1.1.1",
         "componenta/scope": "^1.0",
         "nyholm/psr7-server": "^1.1",
         "psr/container": "^2.0",
@@ -39,7 +39,8 @@
         },
         "branch-alias": {
             "dev-main": "4.0.x-dev",
-            "dev-refactor/app-runtime-contracts": "4.0.x-dev"
+            "dev-refactor/app-runtime-contracts": "4.0.x-dev",
+            "dev-refactor/unified-application-build-2026-11-27": "4.0.x-dev"
         }
     },
     "scripts": {

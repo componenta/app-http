@@ -58,7 +58,7 @@ final class App implements HttpApplicationInterface
             $caller = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
 
             throw new MiddlewarePipeException(
-                $e->middleware,
+                $e->definitionType,
                 $caller['file'] ?? 'unknown',
                 $caller['line'] ?? 0,
                 $e,

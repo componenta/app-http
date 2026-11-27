@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Componenta\App\Exception;
 
-use Componenta\Http\Middleware\Exception\MiddlewareResolutionExceptionInterface;
+use Componenta\Http\Middleware\Exception\MiddlewareResolutionExceptionInterface;
 
 /**
  * Exception thrown when middleware piping fails.
@@ -14,7 +14,7 @@ use Componenta\Http\Middleware\Exception\MiddlewareResolutionExceptionInterface;
 final class MiddlewarePipeException extends \RuntimeException implements MiddlewareResolutionExceptionInterface
 {
     public function __construct(
-        public readonly mixed $middleware,
+        public readonly string $definitionType,
         string $file,
         int $line,
         ?\Throwable $previous = null,
@@ -22,7 +22,7 @@ final class MiddlewarePipeException extends \RuntimeException implements Middlew
         parent::__construct(
             sprintf(
                 'Failed to pipe middleware %s in %s on line %d',
-                self::formatMiddleware($middleware),
+                $definitionType,
                 $file,
                 $line,
             ),
@@ -32,15 +32,5 @@ final class MiddlewarePipeException extends \RuntimeException implements Middlew
 
         $this->file = $file;
         $this->line = $line;
-    }
-
-    private static function formatMiddleware(mixed $middleware): string
-    {
-        return match (true) {
-            is_string($middleware) => "\"$middleware\"",
-            is_object($middleware) => $middleware::class,
-            is_array($middleware) => 'array',
-            default => get_debug_type($middleware),
-        };
     }
 }

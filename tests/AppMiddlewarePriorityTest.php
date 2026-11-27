@@ -153,3 +153,22 @@ it('creates and runs the HTTP app through the shared app factory and real provid
     $app = $container->get(\Componenta\App\AppFactoryInterface::class)->createApp(\Componenta\App\Scope::HTTP, $container);
     expect($app->run())->toBeNull()->and($emitter->response->getStatusCode())->toBe(200);
 });
+
+it('preserves middleware resolution diagnostics through the version three exception contract', function (): void {
+    $app = new App(
+        new AppHttpPriorityRequestCreator(),
+        new AppHttpPriorityEmitter(),
+        new AppHttpPriorityPipelineFactory(),
+        new MiddlewareFactory(new AppHttpPriorityMiddlewareResolver()),
+    );
+
+    try {
+        $app->pipe(['unresolvable' => 'definition']);
+        $this->fail('The invalid middleware definition should fail.');
+    } catch (\Componenta\App\Exception\MiddlewarePipeException $error) {
+        expect($error->definitionType)->toBe('array')
+            ->and($error->getPrevious())->toBeInstanceOf(\Componenta\Http\Middleware\Exception\MiddlewareResolutionExceptionInterface::class)
+            ->and($error->getFile())->toBe(__FILE__)
+            ->and($error->getMessage())->toContain('array', __FILE__);
+    }
+});
